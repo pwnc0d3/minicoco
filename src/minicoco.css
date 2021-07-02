@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+/* minicoco
+----------------------------------------------- */
+:root {
+     --minicoco: #0570a6;
+}
+/* Custom stand alone stuff
+-------------------------------------------------- */
+
+.acceptbtn {
+     padding: 8px 24px !important;
+     background: var(--minicoco);
+     border-radius: 5px;
+     border: 1px solid transparent;
+     color: #fff;
+     transition: all .4s ease-in;
+     cursor: pointer;
+}
+
+.acceptbtn:hover {
+     color: var(--minicoco);
+     background:#fff;
+     border: 1px solid var(--minicoco);
+     transition: all .3s ease-in;
+     cursor: pointer;
+}
+
+/* yt acceptbox */
+div#ytaccept {
+    display: grid;
+    font-size: 12px;
+    padding: 4%;
+}
+
+.acceptbox {
+   /* width:100%; */ /* deactivate for oldschool css */
+   min-height:80px;
+   place-items:center;
+   padding:80px 0;
+   grid-gap: 20px;
+   text-align:center !important;
+   background: #dbe7f5;
+   border: 1px solid #98c3dc;
+   }
+   .acceptbox a {
+
+   }
+
+   /* yt play btn svg styling */
+
+   @-webkit-keyframes spin {
+       to {
+         -webkit-transform: rotate(360deg);
+                 transform: rotate(360deg);
+       }
+     }
+     
+     @keyframes spin {
+       to {
+         -webkit-transform: rotate(360deg);
+                 transform: rotate(360deg);
+       }
+     }
+     .stroke-dotted {
+       opacity: 0;
+       stroke-dasharray: 4,5;
+       stroke-width: 1px;
+       -webkit-transform-origin: 50% 50%;
+               transform-origin: 50% 50%;
+       -webkit-animation: spin 4s infinite linear;
+               animation: spin 4s infinite linear;
+       -webkit-transition: opacity 1s ease,  stroke-width 1s ease;
+       transition: opacity 1s ease,  stroke-width 1s ease;
+     }
+     
+     .stroke-solid {
+       stroke-dashoffset: 0;
+       stroke-dashArray: 300;
+       stroke-width: 4px;
+       -webkit-transition: stroke-dashoffset 1s ease,  opacity 1s ease;
+       transition: stroke-dashoffset 1s ease,  opacity 1s ease;
+     }
+     
+     .icon {
+       -webkit-transform-origin: 50% 50%;
+               transform-origin: 50% 50%;
+       -webkit-transition: -webkit-transform 200ms ease-out;
+       transition: -webkit-transform 200ms ease-out;
+       transition: transform 200ms ease-out;
+       transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
+     }
+      #play.gmapsvg {
+           margin: 1em 0;
+      }
+      @keyframes float {
+         0% {
+              transform: translatey(0px);
+         }
+         50% {
+              transform: translatey(-6px);
+         }
+         100% {
+              transform: translatey(0px);
+         }
+    }
+      @keyframes beating {
+         0% {
+              transform: scale(1)
+         }
+         50% {
+              transform: scale(1.2)
+         }
+         100% {
+              transform: scale(1)
+         }
+    }
+         #gmap:hover .icon.gmap {
+                        -webkit-animation: float 1.4s infinite linear;
+                        animation: float 1.4s infinite linear;
+          }
+          #yt:hover .icon {
+              -webkit-animation: beating 1.2s infinite linear;
+              animation: beating 1.2s infinite linear;
+          }
+
+     #yt:hover .stroke-dotted, #gmap:hover .stroke-dotted {
+       stroke-width: 4px;
+       opacity: 1;
+     }
+     #yt:hover .stroke-solid, #gmap:hover .stroke-solid {
+       opacity: 0;
+       stroke-dashoffset: 300;
+     }
+     #yt:hover .icon, #gmap:hover .icon {
+       -webkit-transform: scale(1.05);
+               transform: scale(1.05);
+     }
+     
+     #play {
+     }
+
+/* end cb yt acceptbox */
+
+#gmap {
+    padding: 2em;
+    line-height: 2em;
+    margin: 1em 0;
+    font-size:12px;
+    text-align:center;
+    background: #dbe7f5;
+    border: 1px solid #98c3dc;
+}
+
+#gmap p { margin-bottom:40px; }
+
+#gmap .allow_google, #ytaccept .allow_google {
+    padding: 0 4em;
+    font-size: 16px;
+}
+
+/* gmap styling after allowance */
+#gmap.allowed {
+    padding: 0;
+    border:none;
+    background:none;
+}
+
+#gmap.allowed iframe {
+    width:100%;
+}
+
+@media screen and (max-width:400px) {
+
+    #gmap .allow_google, #ytaccept .allow_google {
+         padding: 4px 0em;
+    }
+
+}
